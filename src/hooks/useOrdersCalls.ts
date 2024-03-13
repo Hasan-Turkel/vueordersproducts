@@ -17,20 +17,20 @@ const useOrderCalls = () => {
     const { axiosSimple } = useAxios()
 
 
-  // const delBlog = async (id:string) => {
+  const delOrder = async (id:string) => {
    
-  //   try {
-  //       const { data } = await axiosWithToken.delete(`api/blogs/${id}/`,
-  //   );
-  //   toast.success("The blog has been deleted.")
-  //   setTimeout(() => {
-  //     router.go(-1)
-  //   }, 2000);
+    try {
+        const { data } = await axiosSimple.delete(`orders/${id}/`,
+    );
+    toast.success("The order has been deleted.")
+    setTimeout(() => {
+      router.go(-1)
+    }, 2000);
      
-  //   } catch (error) {
-  //   toast.error("The blog couldn't be deleted.")
-  //   }
-  // };
+    } catch (error) {
+    toast.error("The order couldn't be deleted.")
+    }
+  };
 
   // const updateBlog = async (values:any, id:any) => {
    
@@ -91,7 +91,7 @@ Object.assign(detailData, order)
 
 
 
-  return {getOrders, data, detailData, getOrder};
+  return {getOrders, data, detailData, getOrder, delOrder};
 };
 
 export default useOrderCalls;

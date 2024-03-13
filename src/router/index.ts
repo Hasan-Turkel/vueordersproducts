@@ -26,12 +26,12 @@ const router = createRouter({
     },
     {
       path: '/orders/detail/:id',
-      name: 'detail',
+      name: 'orderDetail',
       component: OrderDetailViewVue,
     },
     {
       path: '/products/detail/:id',
-      name: 'detail',
+      name: 'productDetail',
       component: ProductDetailViewVue,
     },
   ],

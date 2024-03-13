@@ -16,7 +16,7 @@ const props = defineProps(["order"])
     <p >{{ order.customerName}}</p>
     <h5 >Order Date</h5> 
       <p >{{ order.orderDate }}</p>
-        <button className="btn btn-primary mt-2 " @click="router.push('/orders/detail/'+order.id)">Go Detail</button>
+        <button v-if="order.id!==1" className="btn btn-primary mt-2 " @click="router.push('/orders/detail/'+order.id)">Go Detail</button>
       </div>
     </div>
 </template>

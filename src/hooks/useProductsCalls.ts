@@ -15,20 +15,20 @@ const useProductsCalls = () => {
     const { axiosSimple } = useAxios()
 
 
-  // const delBlog = async (id:string) => {
+  const delProduct = async (id:string) => {
    
-  //   try {
-  //       const { data } = await axiosWithToken.delete(`api/blogs/${id}/`,
-  //   );
-  //   toast.success("The blog has been deleted.")
-  //   setTimeout(() => {
-  //     router.go(-1)
-  //   }, 2000);
+    try {
+        const { data } = await axiosSimple.delete(`products/${id}/`,
+    );
+    toast.success("The blog has been deleted.")
+    setTimeout(() => {
+      router.go(-1)
+    }, 2000);
      
-  //   } catch (error) {
-  //   toast.error("The blog couldn't be deleted.")
-  //   }
-  // };
+    } catch (error) {
+    toast.error("The blog couldn't be deleted.")
+    }
+  };
 
   // const updateBlog = async (values:any, id:any) => {
    
@@ -89,7 +89,7 @@ Object.assign(detailData, product)
 
 
 
-  return {getProducts, data, getProduct, detailData };
+  return {getProducts, data, getProduct, detailData, delProduct };
 };
 
 export default useProductsCalls;
