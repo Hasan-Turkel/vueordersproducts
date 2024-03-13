@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import OrdersView from '../views/OrdersView.vue'
-import DetailViewVue from '@/views/DetailView.vue'
+import OrderDetailViewVue from '@/views/OrderDetailView.vue'
 import ProductsView from '@/views/ProductsView.vue'
 
 
@@ -26,13 +26,7 @@ const router = createRouter({
     {
       path: '/orders/detail/:id',
       name: 'detail',
-      component: DetailViewVue,
-    },
-    {
-      path: '/products/detail/:id',
-      name: 'detail',
-      component: DetailViewVue,
-      meta: { requiresAuth: true },
+      component: OrderDetailViewVue,
     },
   ],
   
