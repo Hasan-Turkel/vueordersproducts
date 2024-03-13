@@ -16,7 +16,7 @@ onMounted(() => {
   <main
     className="row justify-content-center w-100 my-3 mx-0 gap-4"
   >
-  <div className="text-center"><button className="btn btn-primary mt-2 " @click="router.push('/orders/detail/'+order.id)" style="width: 300px;">New Product</button></div>
+  <div className="text-center"><button className="btn btn-primary mt-2 " @click="router.push('/products/detail/'+product.id)" style="width: 300px;">New Product</button></div>
   
     <ProductCardVue v-for="product in products"
     :key="product.id" :product="product" />

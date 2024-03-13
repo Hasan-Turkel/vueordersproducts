@@ -7,9 +7,10 @@ const useProductsCalls = () => {
 
   const router = useRouter()
     const data = ref<any[]>([])
-    let detailData = reactive({author: "", category: "", category_name : "",comment_count:0,comments: [{content:"", user:"", time_stamp:""}],content: 
-      "",createdAt: "",id: "",image: "", likes: 0,likes_n: [{user_id:""}],post_views: 0,publish_date: "",
-      status:"",title: ""})
+    let detailData = reactive({name: "",
+    price: "",
+    createDate: "",
+    id: ""})
     
     const { axiosSimple } = useAxios()
 
@@ -75,20 +76,20 @@ const useProductsCalls = () => {
   };
 
 
-//   const getDetailBlog = async (id:string | string[]) => {
-//     try {
-//       const { data:blog } = await axiosWithToken(`api/blogs/${id}/`, 
-//       );
-// Object.assign(detailData, blog)
-//     } catch (error) {
-//       // console.log(error);
-//     }
-//   };
+  const getProduct = async (id:string | string[]) => {
+    try {
+      const { data:product } = await axiosSimple(`products/${id}`, 
+      );
+Object.assign(detailData, product)
+    } catch (error) {
+      // console.log(error);
+    }
+  };
 
 
 
 
-  return {getProducts, data };
+  return {getProducts, data, getProduct, detailData };
 };
 
 export default useProductsCalls;
