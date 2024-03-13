@@ -9,7 +9,6 @@ onMounted(() => {
   getOrders()
 })
 
-console.log(orders);
 
 </script>
 
