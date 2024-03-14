@@ -46,33 +46,30 @@ const useOrderCalls = () => {
   // };
 
 
-  // const sendBlog = async (values:any) => {
+  const sendOrder = async (values:any) => {
 
-  //   try {
-  //     const { data } = await axiosWithToken.post(`/api/blogs/`, values, 
-  //     );
-  //     toast.success("The blog has been created.")
-
-  //     setTimeout(() => {
-  //       router.push("/my-blogs")
-  //     }, 2000);
-     
+    try {
+      const { data } = await axiosSimple.post(`/orders`, values, 
+      );
+      toast.success("The order has been created.")
+      console.log(values);
       
-  //     // console.log(data);
-  //   } catch (error) {
-  //     toast.error("The blog couldn't be created.")
-  //   }
-  // };
+
+      // console.log(data);
+    } catch (error) {
+      toast.error("The order couldn't be created.")
+    }
+  };
 
   const getOrders = async () => {
 
     try {
-      const { data:blogs } = await axiosSimple(`orders`
+      const { data:orders } = await axiosSimple(`orders`
       );
-     data.value=blogs
+     data.value=orders
       // console.log(data);
     } catch (error:any) {
-      console.log(error);
+      // console.log(error);
      
     }
   };
@@ -91,7 +88,7 @@ Object.assign(detailData, order)
 
 
 
-  return {getOrders, data, detailData, getOrder, delOrder};
+  return {getOrders, data, detailData, getOrder, delOrder, sendOrder};
 };
 
 export default useOrderCalls;
