@@ -30,18 +30,18 @@ const useProductsCalls = () => {
     }
   };
 
-  // const updateBlog = async (values:any, id:any) => {
+  const updateProduct = async (values:any, id:any) => {
    
-  //   try {
-  //       const { data } = await axiosWithToken.put(`/api/blogs/${id}/`,values,
-  //       );
-  //       toast.success("The blog has been updated.")
+    try {
+        const { data } = await axiosSimple.put(`/products/${id}`,values,
+        );
+        toast.success("The product has been updated.")
       
-  //   } catch (error) {
-  //     toast.error("The blog couldn't be updated.")
+    } catch (error) {
+      toast.error("The product couldn't be updated.")
     
-  //   }
-  // };
+    }
+  };
 
 
   const sendProduct = async (values:any) => {
@@ -85,7 +85,7 @@ Object.assign(detailData, product)
 
 
 
-  return {getProducts, data, getProduct, detailData, delProduct, sendProduct };
+  return {getProducts, data, getProduct, detailData, delProduct, sendProduct, updateProduct };
 };
 
 export default useProductsCalls;
