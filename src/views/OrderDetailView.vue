@@ -15,14 +15,14 @@ onMounted(() => {
   getOrder(id)
 })
 
-const open = ref<boolean>(false);
+const open = ref<boolean>(false)
 
 const showModal = () => {
-  open.value = true;
-};
+  open.value = true
+}
 const hideModal = () => {
-  open.value = false;
-};
+  open.value = false
+}
 </script>
 
 <template>
@@ -41,12 +41,7 @@ const hideModal = () => {
         <p>{{ order.paymentType }}</p>
         <h5>Order Date</h5>
         <p>{{ order.orderDate }}</p>
-        <button
-          className="btn btn-primary mx-3 "
-          @click="showModal"
-        >
-          Update
-        </button>
+        <button className="btn btn-primary mx-3 " @click="showModal">Update</button>
         <button className="btn btn-danger mx-3 " data-bs-toggle="modal" data-bs-target="#del">
           Delete
         </button>

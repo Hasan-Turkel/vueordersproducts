@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import useOrdersCalls from '@/hooks/useOrdersCalls'
 import { reactive } from 'vue'
+import { toast } from 'vue3-toastify'
 
 const { sendOrder } = useOrdersCalls()
 const props = defineProps(['open', 'getOrders'])
@@ -17,22 +18,32 @@ const formValues = reactive({
 const hideModal = () => {
   emits('hideModal')
   Object.assign(formValues, {
-  orderDate: new Date().toISOString().slice(0, 10),
-  description: '',
-  paymentType: '',
-  orderDetails: [],
-  customerName: ''})
+    orderDate: new Date().toISOString().slice(0, 10),
+    description: '',
+    paymentType: '',
+    orderDetails: [],
+    customerName: ''
+  })
 }
 
 const handleclick = () => {
-  formValues.description&&formValues.paymentType&& formValues.customerName&& formValues.orderDetails.length ? sendOrder(formValues)&&setTimeout(() => {
-    props.getOrders()}, 1000)&& Object.assign(formValues, {
-  orderDate: new Date().toISOString().slice(0, 10),
-  description: '',
-  paymentType: '',
-  orderDetails: [],
-  customerName: ''})&&hideModal(): alert('Please fill all areas.')
-  
+  formValues.description &&
+  formValues.paymentType &&
+  formValues.customerName &&
+  formValues.orderDetails.length
+    ? sendOrder(formValues) &&
+      setTimeout(() => {
+        props.getOrders()
+      }, 1000) &&
+      Object.assign(formValues, {
+        orderDate: new Date().toISOString().slice(0, 10),
+        description: '',
+        paymentType: '',
+        orderDetails: [],
+        customerName: ''
+      }) &&
+      hideModal()
+    : toast.warn('Please fill all areas')
 }
 </script>
 
@@ -87,7 +98,9 @@ const handleclick = () => {
           }
         }"
       />
-      <FormKit type="button" @click="() => node.input(value.concat(''))"> Add Order Detail </FormKit>
+      <FormKit type="button" @click="() => node.input(value.concat(''))">
+        Add Order Detail
+      </FormKit>
       <p>{{ value }}</p>
     </FormKit>
 

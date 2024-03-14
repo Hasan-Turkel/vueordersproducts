@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import useOrdersCalls from '@/hooks/useOrdersCalls'
 import { reactive } from 'vue'
+import { toast } from 'vue3-toastify'
 
 const { updateOrder } = useOrdersCalls()
 const props = defineProps(['open', 'getOrder', 'order'])
@@ -22,7 +23,7 @@ const handleclick = () => {
         props.getOrder(props.order.id)
       }, 1000) &&
       hideModal()
-    : alert('Please fill all areas.')
+    : toast.warn('Please fill all areas')
 }
 </script>
 
