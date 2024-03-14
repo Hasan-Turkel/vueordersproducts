@@ -32,18 +32,18 @@ const useOrderCalls = () => {
     }
   };
 
-  // const updateBlog = async (values:any, id:any) => {
+  const updateOrder = async (values:any, id:any) => {
    
-  //   try {
-  //       const { data } = await axiosWithToken.put(`/api/blogs/${id}/`,values,
-  //       );
-  //       toast.success("The blog has been updated.")
+    try {
+        const { data } = await axiosSimple.put(`/orders/${id}`,values,
+        );
+        toast.success("The order has been updated.")
       
-  //   } catch (error) {
-  //     toast.error("The blog couldn't be updated.")
+    } catch (error) {
+      toast.error("The order couldn't be updated.")
     
-  //   }
-  // };
+    }
+  };
 
 
   const sendOrder = async (values:any) => {
@@ -88,7 +88,7 @@ Object.assign(detailData, order)
 
 
 
-  return {getOrders, data, detailData, getOrder, delOrder, sendOrder};
+  return {getOrders, data, detailData, getOrder, delOrder, sendOrder, updateOrder};
 };
 
 export default useOrderCalls;

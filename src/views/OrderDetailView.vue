@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import useOrdersCalls from '@/hooks/useOrdersCalls'
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import DeleteModal from '@/components/DeleteModal.vue'
+import UpdateOrderModal from '@/components/UpdateOrderModal.vue'
 
 const route = useRoute()
 const id = route.params.id
@@ -13,6 +14,15 @@ const source = 'order'
 onMounted(() => {
   getOrder(id)
 })
+
+const open = ref<boolean>(false);
+
+const showModal = () => {
+  open.value = true;
+};
+const hideModal = () => {
+  open.value = false;
+};
 </script>
 
 <template>
@@ -33,7 +43,7 @@ onMounted(() => {
         <p>{{ order.orderDate }}</p>
         <button
           className="btn btn-primary mx-3 "
-          @click="router.push('/orders/detail/' + order.id)"
+          @click="showModal"
         >
           Update
         </button>
@@ -43,5 +53,6 @@ onMounted(() => {
       </div>
     </div>
     <DeleteModal :id="order.id" :source="'order'" />
+    <UpdateOrderModal :open="open" :order="order" :getOrder="getOrder" @hideModal="hideModal" />
   </main>
 </template>

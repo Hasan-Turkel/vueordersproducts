@@ -8,7 +8,7 @@ const { updateProduct } = useProductsCalls()
 
 const props = defineProps(['getProduct', 'open', 'product'])
 const emits = defineEmits(['hideModal'])
-const initialValues = reactive(props.product)
+const initialValues = reactive(props?.product)
 
 const hideModal = () => {
   emits('hideModal')
