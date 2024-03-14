@@ -44,23 +44,19 @@ const useProductsCalls = () => {
   // };
 
 
-  // const sendBlog = async (values:any) => {
+  const sendProduct = async (values:any) => {
 
-  //   try {
-  //     const { data } = await axiosWithToken.post(`/api/blogs/`, values, 
-  //     );
-  //     toast.success("The blog has been created.")
+    try {
+      const { data } = await axiosSimple.post(`/products`, values, 
+      );
+      toast.success("The product has been created.")
 
-  //     setTimeout(() => {
-  //       router.push("/my-blogs")
-  //     }, 2000);
-     
       
-  //     // console.log(data);
-  //   } catch (error) {
-  //     toast.error("The blog couldn't be created.")
-  //   }
-  // };
+      // console.log(data);
+    } catch (error) {
+      toast.error("The product couldn't be created.")
+    }
+  };
 
   const getProducts = async () => {
 
@@ -89,7 +85,7 @@ Object.assign(detailData, product)
 
 
 
-  return {getProducts, data, getProduct, detailData, delProduct };
+  return {getProducts, data, getProduct, detailData, delProduct, sendProduct };
 };
 
 export default useProductsCalls;

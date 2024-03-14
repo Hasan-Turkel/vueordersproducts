@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { reset } from '@formkit/core'
 import useOrdersCalls from '@/hooks/useOrdersCalls'
-import { ref, reactive } from 'vue'
+import { reactive } from 'vue'
 
 const { sendOrder } = useOrdersCalls()
 const props = defineProps(['open', 'getOrders'])
