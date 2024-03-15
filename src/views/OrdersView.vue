@@ -21,7 +21,7 @@ const hideModal = () => {
 </script>
 
 <template>
-  <main className="row justify-content-center w-100 my-3 mx-0 gap-4">
+  <main className="row justify-content-center w-100 mx-0 gap-4 p-2">
     <div className="text-center">
       <button className="btn btn-primary mt-2 " style="width: 300px" @click="showModal">
         New Order
