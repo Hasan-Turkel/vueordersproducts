@@ -3,7 +3,7 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const props = defineProps(['product'])
+defineProps(['product'])
 </script>
 
 <template>

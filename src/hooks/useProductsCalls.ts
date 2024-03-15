@@ -5,7 +5,7 @@ import { toast } from 'vue3-toastify'
 const useProductsCalls = () => {
   const router = useRouter()
   const data = ref<any[]>([])
-  let detailData = reactive({ name: '', price: '', createDate: '', id: '' })
+  const detailData = reactive({ name: '', price: '', createDate: '', id: '' })
 
   const { axiosSimple } = useAxios()
 

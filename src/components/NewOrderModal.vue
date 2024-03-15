@@ -48,7 +48,7 @@ const handleclick = () => {
 </script>
 
 <template>
-  <a-modal v-model:open="props.open" :closable="false" :centered="true">
+  <a-modal :open="props.open" :closable="false" :centered="true">
     <template #footer> </template>
     <h4 role="button" class="text-end" @click="hideModal">X</h4>
 

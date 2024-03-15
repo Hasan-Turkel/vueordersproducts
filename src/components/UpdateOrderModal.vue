@@ -13,12 +13,12 @@ const hideModal = () => {
   emits('hideModal')
 }
 
-const handleclick = () => {
+const  handleclick =  () => {
   initialValues.description &&
   initialValues.paymentType &&
   initialValues.customerName &&
   initialValues.orderDetails.length
-    ? updateOrder(initialValues, props.order.id) &&
+    ?  updateOrder(initialValues, props.order.id) &&
       setTimeout(() => {
         props.getOrder(props.order.id)
       }, 1000) &&
@@ -28,7 +28,7 @@ const handleclick = () => {
 </script>
 
 <template>
-  <a-modal v-model:open="props.open" :closable="false" :centered="true">
+  <a-modal :open="props.open" :closable="false" :centered="true">
     <template #footer> </template>
     <h4 role="button" class="text-end" @click="hideModal">X</h4>
 

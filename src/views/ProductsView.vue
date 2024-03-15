@@ -28,6 +28,8 @@ const hideModal = () => {
       </button>
     </div>
 
+    <a-spin v-if="!products?.length" size="large"/>
+
     <ProductCardVue v-for="product in products" :key="product.id" :product="product" />
     <NewProductModal :open="open" :getProducts="getProducts" @hideModal="hideModal" />
   </main>

@@ -5,7 +5,7 @@ import { toast } from 'vue3-toastify'
 const useOrderCalls = () => {
   const router = useRouter()
   const data = ref<any[]>([])
-  let detailData = reactive({
+  const detailData = reactive({
     orderDate: '',
     description: '',
     paymentType: '',

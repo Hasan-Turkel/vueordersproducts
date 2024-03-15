@@ -3,7 +3,8 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const props = defineProps(['order'])
+defineProps(['order'])
+
 </script>
 
 <template>

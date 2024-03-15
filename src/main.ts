@@ -5,7 +5,7 @@ import '@formkit/themes/genesis'
 import App from './App.vue'
 import router from './router'
 
-import { Modal } from 'ant-design-vue'
+import { Modal, Spin } from 'ant-design-vue'
 import 'ant-design-vue/dist/reset.css'
 
 import Vue3Toastify, { type ToastContainerOptions } from 'vue3-toastify'
@@ -17,6 +17,7 @@ app.use(router)
 app.use(plugin, defaultConfig)
 
 app.use(Modal)
+app.use(Spin)
 
 app.use(Vue3Toastify, {
   autoClose: 2000

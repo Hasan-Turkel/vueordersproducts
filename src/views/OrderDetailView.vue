@@ -9,7 +9,6 @@ const route = useRoute()
 const id = route.params.id
 const { getOrder, detailData: order } = useOrdersCalls()
 
-const source = 'order'
 
 onMounted(() => {
   getOrder(id)
