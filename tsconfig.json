@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "noEmitOnError": false,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
     "types": [
       "vue3-toastify/global"
     ]
