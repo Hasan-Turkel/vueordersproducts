@@ -28,23 +28,26 @@ const hideModal = () => {
 }
 
 const handleclick = () => {
-  formValues.description &&
+
+  if(formValues.description &&
   formValues.paymentType &&
   formValues.customerName &&
-  formValues.orderDetails.length
-    ? sendOrder(formValues) &&
+  formValues.orderDetails.length) {
+
+    sendOrder(formValues) 
       setTimeout(() => {
         props.getOrders()
-      }, 1000) &&
+      }, 1000) 
       Object.assign(formValues, {
         orderDate: new Date().toISOString().slice(0, 10),
         description: '',
         paymentType: '',
         orderDetails: [],
         customerName: ''
-      }) &&
+      })
       hideModal()
-    : toast.warn('Please fill all areas')
+  }else toast.warn('Please fill all areas')
+  
 }
 </script>
 
@@ -91,7 +94,7 @@ const handleclick = () => {
         :index="index"
         placeholder="Add Order Detail"
         suffix-icon="trash"
-        @suffix-icon-click="() => node.input(value.filter((_, i) => i !== index))"
+        @suffix-icon-click="() => node.input(value?.filter((_, i) => i !== index))"
         :sections-schema="{
           suffixIcon: {
             // change wrapper to a button for accessibility
@@ -99,7 +102,7 @@ const handleclick = () => {
           }
         }"
       />
-      <FormKit type="button" @click="() => node.input(value.concat(''))">
+      <FormKit type="button" @click="() => node.input(value?.concat(''))">
         Add Order Detail
       </FormKit>
       <p>{{ value }}</p>

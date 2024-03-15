@@ -14,16 +14,19 @@ const hideModal = () => {
 }
 
 const  handleclick =  () => {
-  initialValues.description &&
+
+  if(initialValues.description &&
   initialValues.paymentType &&
   initialValues.customerName &&
-  initialValues.orderDetails.length
-    ?  updateOrder(initialValues, props.order.id) &&
+  initialValues.orderDetails.length){
+    updateOrder(initialValues, props.order.id)
       setTimeout(() => {
         props.getOrder(props.order.id)
-      }, 1000) &&
+      }, 1000)
       hideModal()
-    : toast.warn('Please fill all areas')
+  } else toast.warn('Please fill all areas')
+  
+   
 }
 </script>
 
@@ -70,7 +73,7 @@ const  handleclick =  () => {
         :index="index"
         placeholder="Add Order Detail"
         suffix-icon="trash"
-        @suffix-icon-click="() => node.input(value.filter((_, i) => i !== index))"
+        @suffix-icon-click="() => node.input(value?.filter((_, i) => i !== index))"
         :sections-schema="{
           suffixIcon: {
             // change wrapper to a button for accessibility
@@ -78,7 +81,7 @@ const  handleclick =  () => {
           }
         }"
       />
-      <FormKit type="button" @click="() => node.input(value.concat(''))">
+      <FormKit type="button" @click="() => node.input(value?.concat(''))">
         Add Order Detail
       </FormKit>
       <p>{{ value }}</p>
