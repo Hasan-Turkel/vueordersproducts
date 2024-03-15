@@ -32,7 +32,7 @@ const handleclick = () => {
   if(formValues.description &&
   formValues.paymentType &&
   formValues.customerName &&
-  formValues.orderDetails.length) {
+  formValues.orderDetails[0]) {
 
     sendOrder(formValues) 
       setTimeout(() => {

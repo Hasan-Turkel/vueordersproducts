@@ -18,7 +18,7 @@ const  handleclick =  () => {
   if(initialValues.description &&
   initialValues.paymentType &&
   initialValues.customerName &&
-  initialValues.orderDetails.length){
+  initialValues.orderDetails[0]){
     updateOrder(initialValues, props.order.id)
       setTimeout(() => {
         props.getOrder(props.order.id)
